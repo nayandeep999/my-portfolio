@@ -3,7 +3,8 @@ import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import compCrafterLandingPage from "@/assets/images/compcrafter.png";
 import grainImage from "@/assets/images/grain.jpg";
 import syntaxhlLandingPage from "@/assets/images/syntaxhl.png";
-import truefeedbackLandingPage from "@/assets/images/turefeedback.png"
+import truefeedbackLandingPage from "@/assets/images/turefeedback.png";
+import { Card } from "@/components/Card";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -48,7 +49,7 @@ const portfolioProjects = [
 
 export const ProjectsSection = () => {
   return (
-    <section className="pb-16 py-14 md:py-20 lg:py-24">
+    <section className="py-16 lg:py-24 lg:pt-20">
       <div className="container overflow-x-clip">
         <div className="flex justify-center">
           <p
@@ -62,20 +63,18 @@ export const ProjectsSection = () => {
           Featured Projects
         </h2>
         <p className="text-center md:text-lg lg:text-xl text-white/60 mt-4 max-w-md mx-auto">
-          See how I&apos;ve transformed concepts into impactful digital experiences
+          See how I&apos;ve transformed concepts into impactful digital
+          experiences
         </p>
         <div className="flex flex-col gap-20 mt-10 md:mt-20">
-          {portfolioProjects.map((project) => (
-            <div
+          {portfolioProjects.map((project, projectIndex) => (
+            <Card
               key={project.title}
-              className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 after:pointer-events-none"
+              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky"
+              style={{
+                top: `calc(64px + ${projectIndex * 40}px`,
+              }}
             >
-              <div
-                className="absolute inset-0 -z-10 opacity-5"
-                style={{
-                  backgroundImage: `url(${grainImage.src})`,
-                }}
-              ></div>
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="lg:pb-16">
                   <div
@@ -92,7 +91,10 @@ export const ProjectsSection = () => {
                   <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
                   <ul className="flex flex-col gap-4 mt-4 md:mt-5">
                     {project.results.map((result) => (
-                      <li className="flex gap-2 text-sm md:text-base text-white/50" key={project.title}>
+                      <li
+                        className="flex gap-2 text-sm md:text-base text-white/50"
+                        key={project.title}
+                      >
                         <CheckCircleIcon className="size-5 md:size-6" />
                         {result.title}
                       </li>
@@ -109,11 +111,11 @@ export const ProjectsSection = () => {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="mt-8 -mb-4 md:-md-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
                   />
                 </div>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </div>

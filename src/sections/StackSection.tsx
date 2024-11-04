@@ -1,19 +1,14 @@
-import ReactIcon from "@/assets/icons/react.svg";
-import NextjsIcon from "@/assets/icons/nextjs.svg";
-import TypescriptIcon from "@/assets/icons/typescript.svg";
-import TailwindCssIcon from "@/assets/icons/tailwind.svg";
-import FramerMotionIcon from "@/assets/icons/framer-motion.svg";
-import ZustandIcon from "@/assets/icons/alphabet-z-icon.svg";
-import NodejsIcon from "@/assets/icons/nodejs-icon.svg";
 import ExpressJsIcon from "@/assets/icons/express.svg";
-import NextAuthIcon from "@/assets/icons/next-auth-new.svg";
 import MongodbIcon from "@/assets/icons/mongodb-icon.svg";
+import NextjsIcon from "@/assets/icons/nextjs.svg";
 import PostgresIcon from "@/assets/icons/postgresql-icon.svg";
 import PrismaIcon from "@/assets/icons/prisma.svg";
-import Spotlight, { SpotlightCard } from "@/components/Spotlight";
-import Image from "next/image";
-import { TechIcon } from "@/components/TechIcon";
+import ReactIcon from "@/assets/icons/react.svg";
+import TailwindCssIcon from "@/assets/icons/tailwind.svg";
+import TypescriptIcon from "@/assets/icons/typescript.svg";
 import { SectionHeader } from "@/components/SectionHeader";
+import Spotlight, { SpotlightCard } from "@/components/Spotlight";
+import { TechIcon } from "@/components/TechIcon";
 
 const techStack = [
   {
@@ -52,7 +47,7 @@ const techStack = [
 
 export const StackSection = () => {
   return (
-    <section className="md:py-15 lg:py-24 xl:py-30">
+    <section className="py-16 lg:py-24 lg:pt-20">
       <div className="container overflow-x-clip">
         <SectionHeader
           eyebrow="Fuel for Innovation"
@@ -80,7 +75,7 @@ export const StackSection = () => {
                       className="w-[40%] h-[40%] absolute inset-0 m-auto -translate-y-[10%] blur-3xl -z-10 rounded-full bg-indigo-600"
                       aria-hidden="true"
                     ></div>
-                    <TechIcon component={tech.iconType} />
+                    <TechIcon className="size-12" component={tech.iconType} />
                   </div>
 
                   {/* Text */}
