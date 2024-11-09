@@ -1,7 +1,7 @@
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
+import coinportLandingPage from "@/assets/images/coinport.png";
 import compCrafterLandingPage from "@/assets/images/compcrafter.png";
-import grainImage from "@/assets/images/grain.jpg";
 import syntaxhlLandingPage from "@/assets/images/syntaxhl.png";
 import truefeedbackLandingPage from "@/assets/images/turefeedback.png";
 import { Card } from "@/components/Card";
@@ -36,6 +36,18 @@ const portfolioProjects = [
   {
     company: "Personal project",
     year: "2024",
+    title: "Digital Wallet Application",
+    results: [
+      { title: "Support for multiple banks" },
+      { title: "Secure peer-to-peer transfers" },
+      { title: "Real-time transaction tracking" },
+    ],
+    link: "https://coinport.nayandeepsen.com/", // adjust URL as needed
+    image: coinportLandingPage, // replace with your image reference
+  },
+  {
+    company: "Personal project",
+    year: "2024",
     title: "Anonymous Feedback Platform",
     results: [
       { title: "Collect instant feedbacks from users" },
@@ -49,7 +61,7 @@ const portfolioProjects = [
 
 export const ProjectsSection = () => {
   return (
-    <section className="py-16 lg:py-24 lg:pt-20">
+    <section className="py-16 lg:py-24 lg:pt-20" id="projects">
       <div className="container overflow-x-clip">
         <div className="flex justify-center">
           <p
@@ -90,10 +102,10 @@ export const ProjectsSection = () => {
                   </h3>
                   <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
                   <ul className="flex flex-col gap-4 mt-4 md:mt-5">
-                    {project.results.map((result) => (
+                    {project.results.map((result, resultIndex) => (
                       <li
                         className="flex gap-2 text-sm md:text-base text-white/50"
-                        key={project.title}
+                        key={resultIndex}
                       >
                         <CheckCircleIcon className="size-5 md:size-6" />
                         {result.title}
@@ -101,7 +113,7 @@ export const ProjectsSection = () => {
                     ))}
                   </ul>
                   <Link href={project.link} target="_blank">
-                    <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
+                    <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 hover:bg-white/70 hover:text-gray-900 transition duration-300">
                       <span>Visit Live Site</span>
                       <ArrowUpRightIcon />
                     </button>
